@@ -12,14 +12,13 @@ import ui.pages.*;
  */
 public class Boards{
     //private MainPage mainPage;
-    private ProjectsPage projectPage = new ProjectsPage();
+    private ProjectsPage projectPage;
     private BoardsPage boardsPage;
-    private AddBoardPage addBoardPage;
+    private AddBoardPage addBoardPage = new AddBoardPage();
     private TopMenuPage topMenu;
 
     @And("^I create a board \"([^\"]*)\"$")
     public void create_a_board(String nameBoard){
-        addBoardPage = projectPage.clickAddBoardList();
         projectPage = addBoardPage.createNewBoard(nameBoard);
     }
 

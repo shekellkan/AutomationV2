@@ -82,7 +82,7 @@ public class Teams {
 
     @Then("^The  member \"([^\"]*)\" is added in the team$")
     public void new_member_is_added(String nameMember){
-        //Assert.assertEquals(nameMember, newMember);
+        Assert.assertEquals(nameMember, newMember);
     }
 
     /**************** AFTER ********************/

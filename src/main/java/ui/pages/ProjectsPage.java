@@ -18,7 +18,7 @@ public class ProjectsPage extends BasePageObject {
 
     @FindBy(xpath = "//span[@class='board-header-btn-text']")
     WebElement nameProject;
-    @FindBy(xpath = "//span[contains(@class,'js-open-add-list') and contains(text(),'Add a list…')]")
+    @FindBy(xpath = "//div[contains(@class,'js-add-list')]/form/span")
     WebElement addBoardBtn;
 
     WebElement boardSearch;

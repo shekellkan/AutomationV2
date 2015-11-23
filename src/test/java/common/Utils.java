@@ -2,6 +2,7 @@ package common;
 
 import framework.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -42,9 +43,24 @@ public class Utils {
     }
 
     public static WebElement findMember(By member){
-
         memberFound = driver.findElement(member);
         System.out.println("Aqui esta:" + memberFound.getText());
         return memberFound;
+    }
+
+    public static WebElement getStaleElem(By by) {
+        try {
+            return driver.findElement(by);
+        } catch (StaleElementReferenceException e) {
+            //System.out.println("Attempting to recover from StaleElementReferenceException ...");
+            return getStaleElem(by);
+        } catch (NoSuchElementException ele) {
+            //System.out.println("Attempting to recover from NoSuchElementException ...");
+            return getStaleElem(by);
+        }
+    }
+
+    public static String getPathBoard(String nameBoard){
+        return "";
     }
 }

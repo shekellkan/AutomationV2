@@ -1,17 +1,23 @@
 package common;
 
-import ui.pages.TopMenuPage;
+import ui.PageTransporter;
 
-/**
- * Created by silvia valencia on 11/9/2015.
- */
 public class CommonMethods {
-    public static TopMenuPage topMenu;
-    /**
-     * Log outs from the web app
-     */
+    private static PageTransporter pageTransporter = PageTransporter.getInstance();
+
     public static void logOut() {
-        topMenu = new TopMenuPage();
-        topMenu.logout();
+        pageTransporter
+                .navigateToHomePage()
+                .clickAuthenticatedDropdownButton()
+                .clickSignOutButton()
+        ;
+    }
+
+    public static void logIn() {
+        pageTransporter
+                .navigateToMainPage()
+                .clickLogInButton()
+                .loginSuccessful("Jhasmany.Quiroz@fundacion-jala.org", "1c7hu57&7")
+        ;
     }
 }
