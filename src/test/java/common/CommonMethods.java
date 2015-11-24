@@ -1,23 +1,21 @@
 package common;
 
 import ui.PageTransporter;
+import ui.pages.LoginPage;
+import ui.pages.TopMenuPage;
 
 public class CommonMethods {
     private static PageTransporter pageTransporter = PageTransporter.getInstance();
+    private static LoginPage loginPage;
+    private static TopMenuPage topMenuPage;
 
     public static void logOut() {
-        pageTransporter
-                .navigateToHomePage()
-                .clickAuthenticatedDropdownButton()
-                .clickSignOutButton()
-        ;
+        topMenuPage = new TopMenuPage();
+        topMenuPage.logout();
     }
 
     public static void logIn() {
-        pageTransporter
-                .navigateToMainPage()
-                .clickLogInButton()
-                .loginSuccessful("Jhasmany.Quiroz@fundacion-jala.org", "1c7hu57&7")
-        ;
+        loginPage = pageTransporter.navigateToLoginPage();
+        loginPage.loginSuccessful("miguel.terceros@fundacion-jala.org", "morfeo3730");
     }
 }

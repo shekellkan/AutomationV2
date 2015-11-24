@@ -5,7 +5,7 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
-import framework.BrowserManager;
+import framework.DriverManager;
 import gherkin.formatter.model.Feature;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterTest;
@@ -39,7 +39,7 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
         } catch (Exception e) {
             log.error("Unable to logout after execution", e);
         } finally {
-            BrowserManager.getInstance().quitBrowser();
+            DriverManager.getInstance().quitDriver();
         }
     }
 

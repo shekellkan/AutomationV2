@@ -72,10 +72,10 @@ public class Projects {
     }
 
     /**************** AFTER ********************/
-//    @After(value = "@Projects", order = 999)
-//    public void afterTeamScenario() {
-//        topMenu = new TopMenuPage();
-//        topMenu.logout();
-//        //DriverManager.getInstance().quitDriver();
-//    }
+    @After(value = "@Projects", order = 999)
+    public void afterTeamScenario() {
+        topMenu = new TopMenuPage();
+        topMenu.logout();
+        //DriverManager.getInstance().quitDriver();
+    }
 }
